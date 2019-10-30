@@ -1,0 +1,20 @@
+service: chainlink-hack-lambda
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+functions:
+  status:
+    handler: handler.status
+    events:
+      - http:
+          path: /
+          method: get
+
+  balanceForAddress:
+    handler: handler.balanceForAddress
+    events:
+      - http:
+          path: /balanceForAddress
+          method: get
